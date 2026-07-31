@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="10" y1="6" x2="70" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0D78C"/>
+      <stop offset="0.45" stop-color="#D4AF6A"/>
+      <stop offset="1" stop-color="#B8893F"/>
+    </linearGradient>
+  </defs>
+  <path d="M40 5L68.5 21.5V54.5L40 71L11.5 54.5V21.5L40 5Z" stroke="url(#gold)" stroke-width="2.4" fill="rgba(212,175,106,0.08)"/>
+  <!-- jar -->
+  <path d="M32 30h16v22c0 2-2 4-8 4s-8-2-8-4V30Z" stroke="url(#gold)" stroke-width="1.5" fill="rgba(212,175,106,0.12)"/>
+  <path d="M30 30h20M34 26h12v4H34V26Z" stroke="url(#gold)" stroke-width="1.5"/>
+  <path d="M35 38h10M35 43h10" stroke="url(#gold)" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <!-- nuts / dates accents -->
+  <ellipse cx="26" cy="48" rx="4" ry="3" stroke="url(#gold)" stroke-width="1.2"/>
+  <ellipse cx="54" cy="47" rx="3.5" ry="4.5" stroke="url(#gold)" stroke-width="1.2"/>
+  <path d="M48 34c3-1 5 1 4 4" stroke="url(#gold)" stroke-width="1.2" stroke-linecap="round"/>
+</svg>
