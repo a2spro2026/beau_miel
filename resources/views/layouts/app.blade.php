@@ -21,12 +21,56 @@
 
     @include('partials.footer')
     @include('partials.admin-modal')
+    @include('partials.inscription-modal')
 
     <script>
         document.getElementById('menuToggle')?.addEventListener('click', () => {
             document.querySelector('.nav-panel')?.classList.toggle('open');
             document.getElementById('navMenu')?.classList.toggle('open');
         });
+
+        (() => {
+            const frame = document.querySelector('.hero-video-frame');
+            const video = document.getElementById('heroVideo');
+            const embed = frame?.querySelector('.hero-video-embed');
+            const hasSource = Boolean(
+                embed?.getAttribute('src')
+                || video?.getAttribute('src')
+                || video?.currentSrc
+                || video?.querySelector('source[src]')
+            );
+            if (frame && hasSource) frame.classList.add('has-video');
+        })();
+
+        (() => {
+            const modal = document.getElementById('inscriptionModal');
+            const open = () => {
+                if (!modal) return;
+                modal.hidden = false;
+                document.body.classList.add('inscription-modal-open');
+                document.querySelector('.nav-panel')?.classList.remove('open');
+                document.getElementById('navMenu')?.classList.remove('open');
+                setTimeout(() => document.getElementById('insc_nom')?.focus(), 120);
+            };
+            const close = () => {
+                if (!modal) return;
+                modal.hidden = true;
+                document.body.classList.remove('inscription-modal-open');
+            };
+            document.querySelectorAll('[data-inscription-open]').forEach((el) => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    open();
+                });
+            });
+            modal?.querySelectorAll('[data-inscription-close]').forEach((el) => el.addEventListener('click', close));
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal && !modal.hidden) close();
+            });
+            @if (session('inscription_open') || session('inscription_sent') || old('nom_complet'))
+                open();
+            @endif
+        })();
 
         (() => {
             const modal = document.getElementById('adminModal');
@@ -94,7 +138,7 @@
                 togglePass.setAttribute('aria-label', show ? 'Masquer le mot de passe' : 'Afficher le mot de passe');
             });
 
-            @if ($errors->has('login') || session('admin_open'))
+            @if ((isset($errors) && $errors->has('login')) || session('admin_open'))
                 openModal();
             @endif
         })();

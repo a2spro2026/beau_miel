@@ -34,8 +34,8 @@
     </article>
     <article class="admin-stat-card">
         <span class="admin-stat-label">CA du mois</span>
-        <strong>42,8 k€</strong>
-        <span class="admin-stat-hint">Objectif 50 k€</span>
+        <strong>42,8 k</strong>
+        <span class="admin-stat-hint">Objectif 50 k</span>
     </article>
 </section>
 
@@ -79,7 +79,7 @@
             <span>Actions rapides</span>
         </header>
         <div class="admin-shortcuts">
-            <a href="#produits">Ajouter un produit</a>
+            <a href="{{ route('admin.products') }}">Ajouter un produit</a>
             <a href="#commandes">Voir les commandes</a>
             <a href="#facturation">Créer une facture</a>
             <a href="#partenaires">Gérer les partenaires</a>

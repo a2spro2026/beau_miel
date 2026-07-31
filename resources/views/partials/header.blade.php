@@ -3,7 +3,10 @@
         <div class="header-inner">
             <div class="header-left">
                 <a href="{{ url('/') }}" class="brand" aria-label="BEAUMIEL — Accueil">
-                    <img src="{{ asset('images/logo.svg') }}" alt="" class="brand-mark" width="40" height="40">
+                    <span class="brand-mark-wrap" aria-hidden="true">
+                        <span class="brand-mark-glow"></span>
+                        <img src="{{ asset('images/logo.svg') }}" alt="" class="brand-mark" width="40" height="40">
+                    </span>
                     <span class="brand-text">
                         <span class="brand-name">BEAUMIEL</span>
                         <span class="brand-tagline">Miel • Fruits secs • Dattes</span>
@@ -18,7 +21,7 @@
                                 <span class="nav-icon-wrap">
                                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5Z"/></svg>
                                 </span>
-                                <span class="nav-label">Home</span>
+                                <span class="nav-label">Accueil</span>
                             </a>
                         </li>
                         <li>
@@ -31,15 +34,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#commerciaux" class="nav-link">
-                                <span class="nav-link-glow" aria-hidden="true"></span>
-                                <span class="nav-icon-wrap">
-                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 7 6.5 3h11L21 7"/><path d="M9 12h6"/></svg>
-                                </span>
-                                <span class="nav-label">Commerciaux</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="#boutique" class="nav-link">
                                 <span class="nav-link-glow" aria-hidden="true"></span>
                                 <span class="nav-icon-wrap">
@@ -49,25 +43,48 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#administration" class="nav-link" id="adminNavLink" data-admin-open>
+                            <button type="button" class="nav-link nav-link-login" data-inscription-open aria-label="Se connecter" title="Se connecter">
                                 <span class="nav-link-glow" aria-hidden="true"></span>
                                 <span class="nav-icon-wrap">
-                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/><circle cx="12" cy="16" r="1.2" fill="currentColor" stroke="none"/></svg>
                                 </span>
-                                <span class="nav-label">Administration</span>
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </nav>
             </div>
 
             <div class="header-actions">
-                <a href="#localisation" class="avatar-thumb" aria-label="Localisation">
-                    <img src="{{ asset('images/avatar.jpg') }}" alt="">
+                <a href="#localisation" class="avatar-chip avatar-thumb" aria-label="Localisation">
+                    <span class="avatar-ring" aria-hidden="true"></span>
+                    <span class="avatar-media">
+                        <img src="{{ asset('images/avatar.jpg') }}" alt="">
+                    </span>
+                    <span class="avatar-meta">
+                        <span class="avatar-meta-label">Magasin</span>
+                        <span class="avatar-meta-value">Localisation</span>
+                    </span>
                 </a>
-                <a href="#compte" class="avatar-user" aria-label="Mon compte">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.2-5 8-5s6.5 1.5 8 5"/></svg>
+                <a href="#compte" class="avatar-chip avatar-user" aria-label="Mon compte">
+                    <span class="avatar-ring" aria-hidden="true"></span>
+                    <span class="avatar-media avatar-media-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.2-5 8-5s6.5 1.5 8 5"/></svg>
+                    </span>
+                    <span class="avatar-meta">
+                        <span class="avatar-meta-label">Compte</span>
+                        <span class="avatar-meta-value">Profil</span>
+                    </span>
                 </a>
+                <button type="button" class="avatar-chip avatar-admin" id="adminNavLink" data-admin-open aria-label="Administration">
+                    <span class="avatar-ring" aria-hidden="true"></span>
+                    <span class="avatar-media avatar-media-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+                    </span>
+                    <span class="avatar-meta">
+                        <span class="avatar-meta-label">Espace</span>
+                        <span class="avatar-meta-value">Admin</span>
+                    </span>
+                </button>
                 <button type="button" class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
                 </button>
